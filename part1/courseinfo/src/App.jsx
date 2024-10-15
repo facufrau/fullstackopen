@@ -26,9 +26,11 @@ const Content = (props) => {
 }
 
 const Total = (props) => {
+  let total = 0
+  props.course.parts.forEach(value => total += value.exercises)
   return (
     <>
-      <p>Number of exercises {props.total}</p>
+      <p>Number of exercises {total}</p>
     </>
   )
 }
@@ -57,7 +59,7 @@ const App = () => {
     <div>
       <Header course={course} />
       <Content course={course} />
-      {/* <Total total={total} /> */}
+      <Total course={course} />
     </div>
   )
 }
